@@ -29,8 +29,8 @@ body {
 .timer input {
   display: block;
   border: none;
-  width: 240px;
-  font-size: 120px;
+  width: 250px;
+  font-size: 100px;
   text-align: center;
 }
 
