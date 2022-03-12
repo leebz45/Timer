@@ -1,11 +1,19 @@
 .dial {
   height: 400px;
   width: 400px;
+  display:block;
+}
+
+.svg-container{
+  display:flex;
+  align-items: center;
+  height: 100%;
 }
 
 .timer {
   position: relative;
   display: inline-block;
+  height: 95vh;
 }
 
 * {
