@@ -14,7 +14,8 @@ class Timer{
     }
 
     start = () => {
-        if(this.onStart){
+        // if paused continue where we left off;
+        if(!this.paused && this.onStart){
             this.onStart(this.timeRemaining);
         }
         this.tick();
@@ -23,6 +24,8 @@ class Timer{
 
     pause = () => {
         clearInterval(this.interval);
+        this.interval = null;
+        this.paused = true;
     };
 
     tick = () => {
