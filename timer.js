@@ -12,11 +12,15 @@ class Timer{
 
         this.startButton.addEventListener("click",this.start);
         this.pauseButton.addEventListener("click",this.pause);
+
+        this.durationInput.addEventListener("focus",this.durationOnFocus);
+        this.durationInput.addEventListener("keydown",this.durationOnKeyDown);
     }
 
     start = () => {
         // if already running - stop;
         if(this.interval) this.stop();
+        else if(isNaN(this.timeRemaining)) alert("Not a number!");
         else {
             // if paused continue where we left off;
             if(!this.paused && this.onStart){
@@ -64,5 +68,16 @@ class Timer{
 
     set timeRemaining(time) {
         this.durationInput.value = time.toFixed(2);
+    }
+
+    durationOnFocus = () => {
+        this.durationInput.select();
+    }
+
+    durationOnKeyDown = (e) => {
+        if(e.key === "Enter") {
+            this.start();
+            this.durationInput.blur();
+        }
     }
 }
